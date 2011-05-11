@@ -132,6 +132,13 @@
         public function create($data=null) {
             return $this->_create_model_instance(parent::create($data));
         }
+
+        // --------------------- //
+        // --- MAGIC METHODS --- //
+        // --------------------- //
+        public function __unset($key) {
+            unset($this->_data[$key]);
+        }
     }
 
     /**
@@ -332,6 +339,13 @@
          */
         public function __isset($property) {
             return $this->orm->__isset($property);
+        }
+
+        /**
+         * Magic unset method, allows unset($model->property) to work correctly.
+         */
+        public function __unset($property) {
+            $this->orm->__unset($property);
         }
 
         /**
