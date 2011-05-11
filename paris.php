@@ -138,6 +138,7 @@
         // --------------------- //
         public function __unset($key) {
             unset($this->_data[$key]);
+            unset($this->_dirty_fields[$key]);
         }
     }
 
