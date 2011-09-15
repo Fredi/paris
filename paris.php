@@ -125,6 +125,15 @@
         }
 
         /**
+         * Raw order by to make possible things like: ORDER BY RAND()
+         */
+        public function raw_order_by($order)
+        {
+            $this->_order_by[] = $order;
+            return $this;
+        }
+
+        /**
          * Wrap Idiorm's create method to return an
          * empty instance of the class associated with
          * this wrapper instead of the raw ORM class.
